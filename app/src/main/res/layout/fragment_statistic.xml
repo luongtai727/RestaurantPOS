@@ -69,45 +69,55 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             android:fontFamily="@font/inter_500"
             android:gravity="center"
             android:text="Time:"
             android:textColor="@color/text_blue"
             android:textSize="@dimen/_15sdp" />
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="Week"
-            android:layout_marginVertical="@dimen/_10sdp"
-            android:layout_marginHorizontal="@dimen/_5sdp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/inter_600"
-            android:background="@drawable/bg_txt_login"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="Month"
-            android:layout_marginVertical="@dimen/_10sdp"
-            android:layout_marginHorizontal="@dimen/_5sdp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/inter_600"
-            android:background="@drawable/bg_txt_login"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="Year"
-            android:layout_marginVertical="@dimen/_10sdp"
-            android:layout_marginHorizontal="@dimen/_5sdp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/inter_600"
-            android:background="@drawable/bg_txt_login"/>
 
+        <RadioGroup
+            android:id="@+id/rdg_time"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="Week"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_600"
+                    android:background="@drawable/bg_txt_login"/>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="Month"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_600"
+                    android:background="@drawable/bg_txt_login"/>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="Year"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_600"
+                    android:background="@drawable/bg_txt_login"/>
+
+        </RadioGroup>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -118,14 +128,22 @@
 
         <TextView
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
             android:fontFamily="@font/inter_500"
             android:gravity="center"
             android:text="Category:"
             android:textColor="@color/text_blue"
             android:textSize="@dimen/_15sdp" />
-        <Button
+
+        <RadioGroup
+            android:id="@+id/rdg_category"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+        <RadioButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -135,7 +153,7 @@
             android:textColor="@color/white"
             android:fontFamily="@font/inter_600"
             android:background="@drawable/bg_txt_login"/>
-        <Button
+        <RadioButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -145,7 +163,7 @@
             android:textColor="@color/white"
             android:fontFamily="@font/inter_600"
             android:background="@drawable/bg_txt_login"/>
-        <Button
+        <RadioButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -155,11 +173,8 @@
             android:textColor="@color/white"
             android:fontFamily="@font/inter_600"
             android:background="@drawable/bg_txt_login"/>
-
-
+        </RadioGroup>
     </LinearLayout>
-
-
 
     <View
         android:layout_width="match_parent"
@@ -188,8 +203,19 @@
         android:background="@color/text_blue"
         android:layout_marginTop="@dimen/_15sdp"/>
 
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcyStatistic"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

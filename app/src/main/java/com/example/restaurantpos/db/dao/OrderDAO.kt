@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.restaurantpos.db.entity.ItemRevenue
 import com.example.restaurantpos.db.entity.OrderEntity
 import com.example.restaurantpos.db.entity.OrderStatusEntity
 
@@ -32,5 +33,7 @@ interface OrderDAO {
     @Query("SELECT * FROM `order` WHERE customer_id = :customerId ORDER BY order_create_time DESC")
     fun getListOrderByCustomerId(customerId: Int): LiveData<MutableList<OrderEntity>>
 
+    @Query("SELECT item.item_id, item.item_name, item.price, cart_item.order_quantity, cart_item.order_id FROM `cart_item`, `item` WHERE cart_item.item_id == item.item_id AND item.category_id == :category ")
+    fun getTotalRevenueByCategory(category : Int): List<ItemRevenue>
 
 }

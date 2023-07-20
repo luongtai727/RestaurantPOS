@@ -118,6 +118,8 @@ interface CartItemDAO {
     @Query("SELECT SUM(`order`.bill_total) FROM `order` WHERE `order`.order_create_time LIKE :time")
     fun getAllOrder(time: String): Float
 
+    @Query("SELECT * FROM `cart_item`")
+    fun getAllCart(): MutableList<CartItemEntity>
 
     @Query("SELECT SUM(cart_item.order_quantity * item.price) FROM `order` Join cart_item ON `order`.order_id = cart_item.order_id JOIN item ON cart_item.item_id = item.item_id  WHERE cart_item.item_id = :id_item AND `order`.order_create_time LIKE :time")
     fun getRevenueOfDayOfItem(id_item: Int, time: String): Float

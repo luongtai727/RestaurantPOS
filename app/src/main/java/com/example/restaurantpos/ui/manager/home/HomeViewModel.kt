@@ -18,12 +18,7 @@ class HomeViewModel : ViewModel() {
 
     val revenue: LiveData<MutableList<Float>> = _revenue
 
-    fun getAllOrder(){
-        CoroutineScope(Dispatchers.IO).launch {
-            val carts: List<OrderEntity> = DatabaseUtil.getAllOrder()
-            val b = carts
-        }
-    }
+
 
     fun getRevenueOfDayOfItem(id_item: Int, time: String) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -37,7 +32,6 @@ class HomeViewModel : ViewModel() {
             DatabaseUtil.getRevenueOfDay(time)
         }
     }*/
-
     fun getRevenueOfDay(nowYear:Int, nowMonth: Int) {
         CoroutineScope(Dispatchers.IO).launch {
             val countDay = DataUtil.getNumberOfDayInMonth(nowYear, nowMonth)

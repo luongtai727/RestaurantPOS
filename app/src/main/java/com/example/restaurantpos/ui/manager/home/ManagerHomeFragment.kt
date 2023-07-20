@@ -171,7 +171,6 @@ class ManagerHomeFragment : Fragment() {
 
         viewModelHome.getRevenueOfDay(nowYear, nowMonth)
 
-        viewModelHome.getAllOrder()
 
 //        for (i in 1..DataUtil.getNumberOfDayInMonth(nowYear, nowMonth)) {
 //            CoroutineScope(Dispatchers.IO).launch {
