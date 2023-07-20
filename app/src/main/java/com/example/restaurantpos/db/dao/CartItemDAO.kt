@@ -8,6 +8,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.restaurantpos.db.entity.CartItemEntity
 import com.example.restaurantpos.db.entity.CartItemStatusEntity
+import com.example.restaurantpos.db.entity.OrderEntity
 
 @Dao
 interface CartItemDAO {
@@ -110,6 +111,12 @@ interface CartItemDAO {
     /** Revenue */
     @Query("SELECT SUM(cart_item.order_quantity * item.price) FROM `order` JOIN cart_item ON `order`.order_id = cart_item.order_id JOIN item ON cart_item.item_id = item.item_id   WHERE `order`.order_create_time LIKE :time")
     fun getRevenueOfDay(time: String): Float
+
+    @Query("SELECT * FROM `order`")
+    fun getAllOrders(): MutableList<OrderEntity>
+
+    @Query("SELECT SUM(`order`.bill_total) FROM `order` WHERE `order`.order_create_time LIKE :time")
+    fun getAllOrder(time: String): Float
 
 
     @Query("SELECT SUM(cart_item.order_quantity * item.price) FROM `order` Join cart_item ON `order`.order_id = cart_item.order_id JOIN item ON cart_item.item_id = item.item_id  WHERE cart_item.item_id = :id_item AND `order`.order_create_time LIKE :time")

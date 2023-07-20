@@ -73,7 +73,6 @@
                 android:paddingVertical="@dimen/_5sdp"
                 android:singleLine="true"
                 android:textSize="@dimen/_18ssp" />
-
             <TextView
                 android:id="@+id/txtLogin"
                 android:layout_width="wrap_content"

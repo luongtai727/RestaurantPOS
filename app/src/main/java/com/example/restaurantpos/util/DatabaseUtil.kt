@@ -81,6 +81,12 @@ object DatabaseUtil {
 
     fun getStaffByName(staffName: String) = accountDAO.getStaffByName("%${staffName}%")
 
+    fun getAllOrder(time: String) =
+        cartItemDAO.getAllOrder("${time}%")
+
+    fun getAllOrder() =
+        cartItemDAO.getAllOrders()
+
     /** 2. CATEGORY && ITEM MANAGEMENT  */
 
     fun getAllCategory() = categoryDAO.getAllCategory()

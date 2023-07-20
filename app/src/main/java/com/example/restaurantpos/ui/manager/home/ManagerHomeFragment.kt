@@ -154,27 +154,24 @@ class ManagerHomeFragment : Fragment() {
                 viewModelHome.getRevenueOfDayOfItem(1, "2023/07")*/
 
 
-        // Title
         val graph_label = ArrayList<String>()
+
+        // Title
         for (i in 1..DataUtil.getNumberOfDayInMonth(nowYear, nowMonth)) {
             graph_label.add("Day $i")
         }
 
-        // Data đi cùng
-        val listRevenue = ArrayList<Float>()
-        viewModelHome.getRevenueOfDay(nowYear, nowMonth)
-        // Add vào và vẽ liên tục
-        // Đến gì = -1. Tức là add xong hết rồi
-        viewModelHome.isDuplicate.observe(viewLifecycleOwner) {
-            if (it == -1f)
-                create_graph(binding.chart, graph_label, listRevenue)
-            else {
-                listRevenue.add(it)
-            }
+        viewModelHome.revenue.observe(viewLifecycleOwner){ it->
+
+            create_graph(binding.chart, graph_label, it)
+
         }
 
 
 
+        viewModelHome.getRevenueOfDay(nowYear, nowMonth)
+
+        viewModelHome.getAllOrder()
 
 //        for (i in 1..DataUtil.getNumberOfDayInMonth(nowYear, nowMonth)) {
 //            CoroutineScope(Dispatchers.IO).launch {
