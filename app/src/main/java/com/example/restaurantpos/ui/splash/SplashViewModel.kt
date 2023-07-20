@@ -10,6 +10,7 @@ import com.example.restaurantpos.db.entity.CartItemStatusEntity
 import com.example.restaurantpos.db.entity.CategoryEntity
 import com.example.restaurantpos.db.entity.CouponEntity
 import com.example.restaurantpos.db.entity.CustomerEntity
+import com.example.restaurantpos.db.entity.CustomerRankEntity
 import com.example.restaurantpos.db.entity.ItemEntity
 import com.example.restaurantpos.db.entity.OrderStatusEntity
 import com.example.restaurantpos.db.entity.ShiftEntity
@@ -119,6 +120,12 @@ class SplashViewModel: ViewModel() {
     fun addCoupon(coupon: CouponEntity) {
         CoroutineScope(Dispatchers.IO).launch {
                 DatabaseUtil.couponDAO.addCoupon(coupon)
+        }
+    }
+
+    fun addCustomerRank(customerEntity: CustomerRankEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            DatabaseUtil.customerRankDAO.addCustomerRank(customerEntity)
         }
     }
 

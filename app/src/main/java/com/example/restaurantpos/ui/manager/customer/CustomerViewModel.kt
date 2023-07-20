@@ -21,6 +21,11 @@ class CustomerViewModel: ViewModel() {
     fun getListCustomerByPhoneForAdd(phone: String) = DatabaseUtil.getListCustomerByPhoneForAdd(phone)
     fun getListCustomer() = DatabaseUtil.getListCustomer()
 
+    fun updateCustomerTotalAndRank(customerId: Int, totalPayment: Double, customerRankId: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            DatabaseUtil.customerDAO.updateCustomerTotalAndRank(customerId, totalPayment, customerRankId)
+        }
+    }
 
 /*    fun addCustomer(data: CustomerEntity) {
         CoroutineScope(Dispatchers.IO).launch{
@@ -37,6 +42,4 @@ class CustomerViewModel: ViewModel() {
             _getIDWhenInsertOrderSuccess.postValue(customerId)
         }
     }
-
-
 }

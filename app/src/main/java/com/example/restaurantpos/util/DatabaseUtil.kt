@@ -9,6 +9,7 @@ import com.example.restaurantpos.db.dao.CartItemDAO
 import com.example.restaurantpos.db.dao.CategoryDAO
 import com.example.restaurantpos.db.dao.CouponDAO
 import com.example.restaurantpos.db.dao.CustomerDAO
+import com.example.restaurantpos.db.dao.CustomerRankDAO
 import com.example.restaurantpos.db.dao.ItemDAO
 import com.example.restaurantpos.db.dao.OrderDAO
 import com.example.restaurantpos.db.dao.ShiftDAO
@@ -42,6 +43,8 @@ object DatabaseUtil {
     lateinit var orderDAO: OrderDAO
     lateinit var customerDAO: CustomerDAO
     lateinit var shiftDAO: ShiftDAO
+    lateinit var customerRankDAO: CustomerRankDAO
+
 //    lateinit var tokenDAO: TokenDAO
 
 
@@ -56,6 +59,8 @@ object DatabaseUtil {
         orderDAO = PosRoomDatabase.getInstance(context).orderDAO()
         customerDAO = PosRoomDatabase.getInstance(context).customerDAO()
         shiftDAO = PosRoomDatabase.getInstance(context).shiftDAO()
+        customerRankDAO = PosRoomDatabase.getInstance(context).customerRankDAO()
+
 //        tokenDAO = PosRoomDatabase.getInstance(context).tokenDAO()
     }
 

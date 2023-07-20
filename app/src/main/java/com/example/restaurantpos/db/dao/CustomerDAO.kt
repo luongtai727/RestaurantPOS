@@ -31,6 +31,6 @@ interface CustomerDAO {
     @Query("SELECT * FROM customer WHERE phone = :phone ")
     fun getListCustomerByPhoneForAdd(phone : String) : LiveData<MutableList<CustomerEntity>>
 
-
-
+    @Query("UPDATE customer SET total_payment = :totalPayment, customer_rank_id = :customerRankId WHERE customer_id = :customerId")
+    fun updateCustomerTotalAndRank(customerId: Int, totalPayment: Double, customerRankId: Int)
 }

@@ -469,11 +469,11 @@ class AddMoreOrderFragment : Fragment() {
                         edtCustomerName.text.toString(),
                         edtPhoneNumber.text.toString(),
                         txtCustomerBirthday.text.toString(),
-                        0.0
+                        0.0,
+                        1
                     )
                 )
             }
-
 
             viewModelCustomer.getListCustomerByPhoneForAdd(edtPhoneNumber.text.toString())
                 .observe(viewLifecycleOwner) { listCustomer ->

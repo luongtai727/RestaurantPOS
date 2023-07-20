@@ -10,6 +10,7 @@ import com.example.restaurantpos.db.dao.CartItemDAO
 import com.example.restaurantpos.db.dao.CategoryDAO
 import com.example.restaurantpos.db.dao.CouponDAO
 import com.example.restaurantpos.db.dao.CustomerDAO
+import com.example.restaurantpos.db.dao.CustomerRankDAO
 import com.example.restaurantpos.db.dao.ItemDAO
 import com.example.restaurantpos.db.dao.OrderDAO
 import com.example.restaurantpos.db.dao.ShiftDAO
@@ -23,6 +24,7 @@ import com.example.restaurantpos.db.entity.CartItemStatusEntity
 import com.example.restaurantpos.db.entity.CategoryEntity
 import com.example.restaurantpos.db.entity.CouponEntity
 import com.example.restaurantpos.db.entity.CustomerEntity
+import com.example.restaurantpos.db.entity.CustomerRankEntity
 import com.example.restaurantpos.db.entity.ItemEntity
 import com.example.restaurantpos.db.entity.OrderEntity
 import com.example.restaurantpos.db.entity.OrderStatusEntity
@@ -47,7 +49,9 @@ import com.example.restaurantpos.db.entity.TableStatusEntity
         OrderStatusEntity::class,
         ShiftEntity::class,
         TableEntity::class,
-        TableStatusEntity::class
+        TableStatusEntity::class,
+        CustomerRankEntity::class
+
 //        TokenEntity::class
     ]
 )
@@ -63,6 +67,8 @@ public abstract class PosRoomDatabase : RoomDatabase() {
     abstract fun orderDAO(): OrderDAO
     abstract fun customerDAO(): CustomerDAO
     abstract fun shiftDAO(): ShiftDAO
+    abstract fun customerRankDAO(): CustomerRankDAO
+
 //    abstract fun tokenDAO(): TokenDAO
 
     companion object {

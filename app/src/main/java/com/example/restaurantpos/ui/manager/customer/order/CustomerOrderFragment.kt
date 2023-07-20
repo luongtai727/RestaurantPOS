@@ -45,7 +45,7 @@ class CustomerOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Nếu Null--> Default UnknownCustomer
-        customerObject = CustomerEntity(0, "Unkown", "...", "...", 0.0)
+        customerObject = CustomerEntity(0, "Unkown", "...", "...", 0.0, 1)
         // Còn không--> Lấy Customer từ Fragment trước đáp sang
         if (requireArguments().getString("customerObject").toString() != "") {
             customerObject = requireArguments().getString("customerObject")?.let {

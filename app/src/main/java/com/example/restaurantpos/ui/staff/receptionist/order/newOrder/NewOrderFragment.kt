@@ -49,13 +49,11 @@ class NewOrderFragment : Fragment() {
     lateinit var adapterCartItem: CartItemAdapter
     lateinit var adapterCustomerInner: CustomerInnerAdapter
 
-
     /** Những ViewModel chứa các phương thức cần sử dụng */
     lateinit var viewModelCategory: CategoryViewModel
     lateinit var viewModelCart: CartViewModel
     lateinit var viewModelTable: TableViewModel
     lateinit var viewModelCustomer: CustomerViewModel
-
 
     /** Tạo những đối tượng của Entity để dễ thao tác */
     private var tableObject: TableEntity? = null
@@ -411,11 +409,11 @@ class NewOrderFragment : Fragment() {
                         edtCustomerName.text.toString(),
                         edtPhoneNumber.text.toString(),
                         txtCustomerBirthday.text.toString(),
-                        0.0
+                        0.0,
+                        1
                     )
                 )
             }
-
 
             viewModelCustomer.getListCustomerByPhoneForAdd(edtPhoneNumber.text.toString())
                 .observe(viewLifecycleOwner) { listCustomer ->

@@ -15,6 +15,7 @@ import com.example.restaurantpos.db.entity.CartItemStatusEntity
 import com.example.restaurantpos.db.entity.CategoryEntity
 import com.example.restaurantpos.db.entity.CouponEntity
 import com.example.restaurantpos.db.entity.CustomerEntity
+import com.example.restaurantpos.db.entity.CustomerRankEntity
 import com.example.restaurantpos.db.entity.ItemEntity
 import com.example.restaurantpos.db.entity.OrderStatusEntity
 import com.example.restaurantpos.db.entity.ShiftEntity
@@ -148,9 +149,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         )
 
         /** 5. Customer  */
-        viewModel.addCustomer(CustomerEntity(1, "Quang 1", "08034931491", "1995/03/02", 0.0))
-        viewModel.addCustomer(CustomerEntity(2, "Quang 2", "09034931492", "1995/03/03", 3000.0))
-        viewModel.addCustomer(CustomerEntity(3, "Quang 3", "07034931493", "1995/03/04", 11000.0))
+        viewModel.addCustomer(CustomerEntity(1, "Quang 1", "08034931491", "1995/03/02", 0.0, 1))
+        viewModel.addCustomer(CustomerEntity(2, "Quang 2", "09034931492", "1995/03/03", 3000.0, 2))
+        viewModel.addCustomer(CustomerEntity(3, "Quang 3", "07034931493", "1995/03/04", 11000.0, 3))
 
         /** 6. Shift  */
 
@@ -170,6 +171,12 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         viewModel.addCoupon(CouponEntity(3, "2023/07/12", "QUANG3", 32, 1))
         viewModel.addCoupon(CouponEntity(4, "2023/07/13", "QUANG4", 43, 0))
         viewModel.addCoupon(CouponEntity(5, "2023/07/14", "QUANG5", 54, 1))
+
+        /** 8. Customer rank  */
+        viewModel.addCustomerRank(CustomerRankEntity(1, "rank 0"))
+        viewModel.addCustomerRank(CustomerRankEntity(2, "rank 1"))
+        viewModel.addCustomerRank(CustomerRankEntity(3, "rank 2"))
+        viewModel.addCustomerRank(CustomerRankEntity(4, "rank 3"))
     }
 
     private fun startLoginActivity() {
