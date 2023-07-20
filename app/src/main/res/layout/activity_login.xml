@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="@dimen/_50sdp">
+
+        <LinearLayout
+            android:id="@+id/llLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="@dimen/_40sdp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/img_cake_coffee" />
+
+            <ImageView
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:src="@drawable/img_logo_rikai" />
+
+            <TextView
+                android:id="@+id/txtInformLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/inter_300"
+                android:gravity="center"
+                android:text="Username or Password is wrong/empty!"
+                android:textColor="@color/text_red"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/edtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_edt_login"
+                android:fontFamily="@font/inter_400"
+                android:hint="@string/username"
+                android:text="quang0"
+                android:singleLine="true"
+                android:minHeight="48dp"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:paddingVertical="@dimen/_5sdp"
+                android:textSize="@dimen/_18ssp" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@drawable/bg_edt_login"
+                android:fontFamily="@font/inter_400"
+                android:hint="@string/password"
+                android:text="123"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:paddingVertical="@dimen/_5sdp"
+                android:singleLine="true"
+                android:textSize="@dimen/_18ssp" />
+
+            <TextView
+                android:id="@+id/txtLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/bg_txt_login"
+                android:fontFamily="@font/inter_600"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:paddingVertical="@dimen/_5sdp"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20ssp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

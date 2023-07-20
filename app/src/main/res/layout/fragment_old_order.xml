@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.staff.receptionist.order.oldOrder.OldOrderFragment">
+
+    <LinearLayout
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/text_blue"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:src="@drawable/img_back"
+            android:gravity="center_vertical"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/txtTableName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter_500"
+            android:layout_marginStart="@dimen/_32sdp"
+            android:gravity="center"
+            android:text="Table's name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+
+        <ImageView
+            android:id="@+id/txtCheckout"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/img_checkout"
+            app:tint="@color/white" />
+
+
+        <ImageView
+            android:id="@+id/txtAddMoreOrder"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/img_add_circle"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:background="@color/text_blue"/>
+
+    <include
+        android:id="@+id/layoutCartItemInKitchen"
+        layout="@layout/item_cart_item_header_in_old_order" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:background="@color/text_blue"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyCartItemInOldOrder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="1"
+        tools:listitem="@layout/item_cart_item_detail_in_old_order" />
+
+
+</LinearLayout>

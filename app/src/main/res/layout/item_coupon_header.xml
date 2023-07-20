@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewRootCoupon"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/_15sdp"
+    android:minHeight="@dimen/_30sdp"
+    android:layout_marginHorizontal="@dimen/_10sdp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+
+    <TextView
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:text="No."
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/_12sdp" />
+
+
+    <TextView
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:text="Add Date"
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/_12sdp" />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:text="Code"
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/_12sdp" />
+
+
+    <TextView
+        android:layout_width="@dimen/_65sdp"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:text="Discount"
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/_12sdp" />
+
+
+    <TextView
+        android:id="@+id/txtCouponStatusHeader"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:text="Status"
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/_12sdp" />
+
+</LinearLayout>

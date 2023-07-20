@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_35sdp"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:background="@drawable/bg_item_user"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/_8sdp"
+    android:paddingVertical="@dimen/_8sdp">
+
+    <ImageView
+        android:id="@+id/imgLock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_lock"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/txtUserName"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_19sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_weight="1.2"
+        android:fontFamily="@font/inter_500"
+        android:gravity="center_vertical"
+        android:text="@string/user_s_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/txtUserRole"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center_vertical"
+        android:text="@string/role"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp" />
+
+    <ImageView
+        android:id="@+id/imgEditUser"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/img_edit_user"
+        app:tint="@color/text_blue" />
+
+
+</LinearLayout>

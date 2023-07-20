@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menuTest"
+        android:icon="@drawable/ic_menu"
+        android:title="MENU"
+        app:showAsAction="always">
+        <!--        Them SUB Menu-->
+        <menu>
+            <!--            Sub-Menu 1-->
+            <item
+                android:id="@+id/menuHome"
+                android:icon="@drawable/ic_home"
+                android:title="Home" />
+            <!--            Sub-Menu 2-->
+            <item
+                android:id="@+id/menuExit"
+                android:icon="@drawable/ic_exit"
+                android:title="Home" />
+            <!--            Sub-Menu 3-->
+            <item
+                android:id="@+id/menuSearch"
+                android:icon="@drawable/ic_search"
+                android:title="Home" />
+        </menu>
+    </item>
+</menu>

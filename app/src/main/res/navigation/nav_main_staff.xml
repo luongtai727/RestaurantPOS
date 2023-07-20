@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_receptionist.xml"
+    app:startDestination="@id/tableFragment">
+
+    <fragment
+        android:id="@+id/tableFragment"
+        android:name="com.example.restaurantpos.ui.staff.receptionist.table.TableFragment"
+        android:label="fragment_table"
+        tools:layout="@layout/fragment_table">
+        <action
+            android:id="@+id/action_tableFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_orderedTableFragment"
+            app:destination="@id/orderedTableFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_shiftOfStaffFragment"
+            app:destination="@id/shiftOfStaffFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_updateStaffInfoFragment"
+            app:destination="@id/updateStaffInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.example.restaurantpos.ui.staff.receptionist.order.newOrder.NewOrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_new_order">
+        <!-- Giải thích cho phần này-->
+        <argument
+            android:name="tableObject"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="orderNavigation"
+            android:defaultValue="1"
+            app:argType="integer" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/orderedTableFragment"
+        android:name="com.example.restaurantpos.ui.staff.receptionist.order.oldOrder.OldOrderFragment"
+        android:label="fragment_ordered_table"
+        tools:layout="@layout/fragment_old_order">
+
+        <!--Đáp ở đâu thì đặt argument ở đấy-->
+        <argument
+            android:name="tableObject"
+            android:defaultValue=""
+            app:argType="string" />
+
+
+        <action
+            android:id="@+id/action_orderedTableFragment_to_addMoreOrderFragment2"
+            app:destination="@id/addMoreOrderFragment" />
+        <action
+            android:id="@+id/action_orderedTableFragment_to_checkoutFragment4"
+            app:destination="@id/checkoutFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/kitchenFragment"
+        android:name="com.example.restaurantpos.ui.staff.kitchen.KitchenFragment"
+        android:label="fragment_kitchen"
+        tools:layout="@layout/fragment_kitchen">
+        <action
+            android:id="@+id/action_kitchenFragment_to_shiftOfStaffFragment"
+            app:destination="@id/shiftOfStaffFragment" />
+        <action
+            android:id="@+id/action_kitchenFragment_to_updateStaffInfoFragment"
+            app:destination="@id/updateStaffInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addMoreOrderFragment"
+        android:name="com.example.restaurantpos.ui.staff.receptionist.order.moreOrder.AddMoreOrderFragment"
+        android:label="fragment_add_more_order"
+        tools:layout="@layout/fragment_add_more_order">
+
+        <argument
+            android:name="tableObject"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="orderObject"
+            android:defaultValue=""
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.restaurantpos.ui.staff.receptionist.checkout.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout">
+
+        <argument
+            android:name="tableObject"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="orderObject"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_checkoutFragment_to_checkoutConfirmFragment"
+            app:destination="@id/checkoutConfirmFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/shiftOfStaffFragment"
+        android:name="com.example.restaurantpos.ui.staff.ShiftOfStaffFragment"
+        android:label="fragment_shift_of_staff"
+        tools:layout="@layout/fragment_shift_of_staff">
+
+        <argument
+            android:name="shiftOfStaff"
+            android:defaultValue="1"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateStaffInfoFragment"
+        android:name="com.example.restaurantpos.ui.staff.UpdateStaffInfoFragment"
+        android:label="UpdateStaffInfoFragment" >
+
+        <argument
+            android:name="updateStaffInfo"
+            android:defaultValue="1"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutDoneFragment"
+        android:name="com.example.restaurantpos.ui.staff.receptionist.checkout.confirm.CheckoutDoneFragment"
+        android:label="fragment_checkout_done"
+        tools:layout="@layout/fragment_checkout_done" >
+        <action
+            android:id="@+id/action_checkoutDoneFragment_to_tableFragment"
+            app:destination="@id/tableFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutConfirmFragment"
+        android:name="com.example.restaurantpos.ui.staff.receptionist.checkout.confirm.CheckoutConfirmFragment"
+        android:label="CheckoutConfirmFragment" >
+
+        <argument
+            android:name="tableObjectQ"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="orderObjectQ"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="billObjectQ"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_checkoutConfirmFragment_to_checkoutDoneFragment"
+            app:destination="@id/checkoutDoneFragment" />
+    </fragment>
+
+</navigation>

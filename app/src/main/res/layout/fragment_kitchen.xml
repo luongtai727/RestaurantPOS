@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.staff.kitchen.KitchenFragment">
+
+    <LinearLayout
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/text_blue"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtShift"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_600"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:text="Shift"
+            android:textColor="@color/border_blue"
+            android:textSize="@dimen/_18ssp" />
+
+        <TextView
+            android:id="@+id/txtLoginAccountName"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter_500"
+            android:gravity="center_vertical|right"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingRight="@dimen/_8sdp"
+            android:text="@string/loginaccount_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+
+        <ImageView
+            android:id="@+id/imgMenuToolBar"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/img_menu_toolbar"
+            android:text="@string/loginaccount_name"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:background="@color/text_blue"/>
+
+    <include
+        android:id="@+id/layoutTitleOfCartItemInKitchen"
+        layout="@layout/item_cart_item_header_in_kitchen" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:background="@color/text_blue"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyCartItemInKitchen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="1"
+        tools:listitem="@layout/item_cart_item_detail_in_kitchen" />
+
+
+</LinearLayout>

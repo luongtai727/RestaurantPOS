@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/viewRootCustomerInner"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_25sdp"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:background="@drawable/bg_item_user"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/_8sdp">
+
+    <TextView
+        android:id="@+id/txtCustomerName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:layout_weight="0.7"
+        android:fontFamily="@font/inter_300"
+        android:hint="Name"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/imgCustomerPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:src="@drawable/img_phone"
+        app:tint="@color/text_blue" />
+
+    <TextView
+        android:id="@+id/txtCustomerPhoneInner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_300"
+        android:hint="Customer's Phone"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+</LinearLayout>

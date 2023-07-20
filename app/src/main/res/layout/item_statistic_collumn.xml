@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_70sdp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/viewRootStatisticColumn"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="bottom"
+        android:layout_weight="1"
+        android:background="@drawable/bg_border_none_rounded_corner"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtRevenue"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="100"
+            android:gravity="bottom|center_horizontal"
+            tools:ignore="NestedWeights"
+            android:textSize="12sp"/>
+
+        <View
+            android:id="@+id/viewRevenue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/text_blue" />
+
+    </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtRevenue"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_20sdp"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Revenue"-->
+<!--        android:textColor="@color/text_blue"-->
+<!--        android:textSize="13sp" />-->
+
+
+    <TextView
+        android:id="@+id/txtTitleByTime"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_20sdp"
+        android:gravity="center"
+        android:text="Title"
+        android:textColor="@color/text_blue"
+        android:textSize="13sp" />
+
+
+</LinearLayout>

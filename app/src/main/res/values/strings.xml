@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">RestaurantPOS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="welcome">RIKAI Bakery &amp; Coffee</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Login_Empty">Username and password cannot be empty!</string>
+    <!-- Button Navigation Item-->
+    <string name="nav_home">Home</string>
+    <string name="nav_user">User</string>
+    <string name="nav_category">Category</string>
+    <string name="nav_customer">Customer</string>
+
+    <string name="nav_food">Food</string>
+    <string name="nav_drink">Drink</string>
+    <string name="nav_dessert">Dessert</string>
+    <string name="user_s_name">User\'s Name</string>
+    <string name="role">Role</string>
+    <string name="user_management">User Management</string>
+    <string name="add">ADD</string>
+    <string name="staff_s_name">Staff\'s name</string>
+    <string name="loginaccount_name">LoginAccount Name</string>
+    <string name="disable_this_account">Disable this Account</string>
+    <string name="cancel">CANCEL</string>
+    <string name="enable_this_account">Enable this Account</string>
+
+
+    <string name="account_disabled_message">This account was already disabled!</string>
+    <string name="account_active_message">This account is active now!</string>
+
+
+    <string name="instruction_update_info">You can update only the necessary information.</string>
+
+
+   <!-- Inform Message -->
+    <string name="msg_special_and_space_character"> Special characters and spaces are not allowed!</string>
+
+
+</resources>

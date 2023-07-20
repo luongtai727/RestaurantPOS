@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_customdialog">
+
+
+    <ImageView
+        android:id="@+id/imgCloseDialogCustomer"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_margin="@dimen/_12sdp"
+        android:background="@color/white"
+        android:backgroundTint="@color/text_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/txtAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/bg_customdialog_button"
+        android:fontFamily="@font/inter_600"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:text="Add Staff to Roster"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/llCustomerName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAddItem">
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/img_right_arrow"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Year:"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_500"
+            android:textSize="@dimen/_15sdp"
+            android:gravity="center_vertical"/>
+
+
+        <TextView
+            android:id="@+id/edtShiftYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_400"
+            android:gravity="left"
+            android:hint="2023"
+            android:inputType="number"
+            android:padding="@dimen/_4sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:textSize="@dimen/_15sdp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llItemPrice"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llCustomerName">
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/img_right_arrow"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Month:"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_500"
+            android:textSize="@dimen/_15sdp"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/edtShiftMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_400"
+            android:gravity="left"
+            android:hint="07"
+            android:padding="@dimen/_4sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llCustomerBirthday"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llItemPrice">
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/img_right_arrow"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Day:"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_500"
+            android:textSize="@dimen/_15sdp"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/edtShiftDay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_400"
+            android:gravity="left"
+            android:hint="05"
+            android:padding="@dimen/_4sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:textSize="@dimen/_15sdp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llShiftName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llCustomerBirthday">
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/img_right_arrow"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Shift:"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_500"
+            android:textSize="@dimen/_15sdp"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/edtShiftName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_400"
+            android:gravity="left"
+            android:hint="(1) Morning"
+            android:padding="@dimen/_4sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:textSize="@dimen/_15sdp" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imgClock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:src="@drawable/img_calendar"
+        app:layout_constraintBottom_toTopOf="@+id/llStaff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llShiftName"
+        app:tint="@color/white" />
+
+
+
+    <LinearLayout
+        android:id="@+id/llStaff"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgClock">
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/img_right_arrow"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Staff:"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_500"
+            android:textSize="@dimen/_15sdp"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/edtStaffName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_400"
+            android:gravity="left"
+            android:hint="Quang"
+            android:padding="@dimen/_4sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:textSize="@dimen/_15sdp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyStaffSelection"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_18ssp"
+        android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llStaff"
+        app:spanCount="1"
+        tools:listitem="@layout/item_staff_selection" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rcyStaffSelection">
+
+        <Button
+            android:id="@+id/btnAddStaffShift"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/bg_light_blue"
+            android:fontFamily="@font/inter_600"
+            android:text="ADD"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/bg_light_blue"
+            android:fontFamily="@font/inter_600"
+            android:text="Cancel"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

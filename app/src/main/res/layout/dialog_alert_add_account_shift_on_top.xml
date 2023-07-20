@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_customdialog">
+
+
+    <ImageView
+        android:id="@+id/imgClose"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_margin="@dimen/_12sdp"
+        android:background="@color/white"
+        android:backgroundTint="@color/text_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/txtAddAccountShift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/bg_customdialog_button"
+        android:fontFamily="@font/inter_600"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:text="ADD \nAccount and Shift"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/llCustomerName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAddAccountShift">
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/img_right_arrow"
+            app:tint="@color/white" />
+
+        <EditText
+            android:id="@+id/edtAccount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_400"
+            android:gravity="center_vertical"
+            android:hint="Enter staff' name"
+            android:inputType="text"
+            android:maxLength="18"
+            android:padding="@dimen/_4sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:textSize="@dimen/_14sdp"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyAccountInner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_18ssp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llCustomerName"
+        app:spanCount="1"
+        tools:listitem="@layout/item_staff_selection" />
+
+    <LinearLayout
+        android:id="@+id/llItemPrice"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rcyAccountInner">
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/img_right_arrow"
+            app:tint="@color/white" />
+
+
+        <Spinner
+            android:id="@+id/spnShift"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_400"
+            android:gravity="center_vertical"
+            android:inputType="number"
+            android:paddingStart="@dimen/_12sdp"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llCustomerBirthday"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llItemPrice">
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/img_right_arrow"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/txtShiftDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:layout_weight="5"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_400"
+            android:gravity="center_vertical"
+            android:hint="Pick up from →"
+            android:padding="@dimen/_4sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:textSize="@dimen/_14sdp" />
+
+        <ImageView
+            android:id="@+id/imgDate"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_calendar"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txtError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:gravity="center"
+        android:textColor="@color/text_red"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llCustomerBirthday">
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/bg_light_blue"
+            android:fontFamily="@font/inter_600"
+            android:text="ADD"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/bg_light_blue"
+            android:fontFamily="@font/inter_600"
+            android:text="Cancel"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

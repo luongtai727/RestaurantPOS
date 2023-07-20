@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewRootCartItemInKitchen"
+    android:layout_width="match_parent"
+    android:minHeight="@dimen/_35sdp"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_4sdp"
+    android:orientation="horizontal">
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/text_blue" />
+
+    <TextView
+        android:id="@+id/txtNo"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:text="No."
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/text_blue" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="2.2"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:text="Time"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/text_blue" />
+
+    <TextView
+        android:id="@+id/txtTableName"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="2.5"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:text="Table"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/text_blue" />
+
+    <TextView
+        android:id="@+id/txtItemName"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center_vertical"
+        android:text="Item"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/text_blue" />
+
+
+
+    <TextView
+        android:id="@+id/txtOrderQuantity"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center_vertical|right"
+        android:text="x ?"
+        android:paddingEnd="@dimen/_3sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/text_blue" />
+
+    <TextView
+        android:id="@+id/txtNote"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center_vertical"
+        android:text="Note"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/text_blue" />
+
+    <TextView
+        android:id="@+id/txtCartItemStatus"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:fontFamily="@font/inter_400"
+        android:gravity="center"
+        android:text="Status"
+        android:layout_marginHorizontal="@dimen/_3sdp"
+        android:layout_marginVertical="@dimen/_4sdp"
+        android:background="@drawable/bg_status_red"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/text_blue" />
+
+
+</LinearLayout>
