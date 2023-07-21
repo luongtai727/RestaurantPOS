@@ -108,32 +108,18 @@ class ShiftFragment : Fragment() {
             day,
             object : ShiftAdapter.EventClickShiftListener {
                 override fun clickMorningShift(shift_id: String) {
-                    if (SharedPreferencesUtils.getAccountRole() == 0) {
-//                        viewModelShift.addAccountShift(
-//                            AccountShiftEntity(0, shift_id, 2)
-//                        )
-//                        showAddAccountShiftDialog(shift_id)
-                    }
+
                 }
 
                 override fun clickAfternoonShift(shift_id: String) {
-                    if (SharedPreferencesUtils.getAccountRole() == 0) {
-//                        viewModelShift.addAccountShift(
-//                            AccountShiftEntity(0, shift_id, 3)
-//                        )
-//                        showAddAccountShiftDialog(shift_id)
-                    }
+
                 }
 
                 override fun clickNightShift(shift_id: String) {
-                    if (SharedPreferencesUtils.getAccountRole() == 0) {
-//                        viewModelShift.addAccountShift(
-//                            AccountShiftEntity(0, shift_id, 2)
-//                        )
-//                        showAddAccountShiftDialog(shift_id)
-                    }
+
                 }
             })
+
         binding.rcyShift.adapter = adapterShift
         /**---------------------------------------------------------------------------------------*/
     }

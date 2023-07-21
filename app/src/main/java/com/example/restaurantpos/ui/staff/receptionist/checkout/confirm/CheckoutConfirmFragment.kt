@@ -94,8 +94,6 @@ class CheckoutConfirmFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-
-
         /** Adapter BILL */
         adapterItemCheckout = ItemCheckoutAdapter(requireContext(), ArrayList(), viewLifecycleOwner)
         binding.rcyItemInBill.adapter = adapterItemCheckout
@@ -112,6 +110,13 @@ class CheckoutConfirmFragment : Fragment() {
         billObject =
             BillEntity.toBill(requireArguments().getString("billObjectQ").toString())
 
+        if (billObject != null && orderObject != null){
+            orderObject!!.sub_total = billObject!!.bill_subTotal
+            orderObject!!.coupon = billObject!!.bill_coupon
+            orderObject!!.customer_rank = billObject!!.bill_customer_rank_percent
+            orderObject!!.cash = billObject!!.bill_cash.toLong()
+            orderObject!!.change = billObject!!.bill_change
+        }
 
         binding.txtDate.text = billObject?.bill_date
         binding.txtTable.text = billObject?.bill_table_name

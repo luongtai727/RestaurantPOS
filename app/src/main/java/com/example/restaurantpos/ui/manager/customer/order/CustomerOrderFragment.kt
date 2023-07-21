@@ -53,8 +53,10 @@ class CustomerOrderFragment : Fragment() {
                     it
                 )
             }!!
-        }
 
+            binding.txtRank.text = "Rank " + customerObject.customer_rank_id
+            binding.txtTotalMoney.text = String.format("%.1f",customerObject.total_payment).plus("$")
+        }
 
         /** Adapter: Tạo --> Set --> Push Data */
         adapterCustomerOrder =

@@ -2,7 +2,6 @@ package com.example.restaurantpos.ui.staff.receptionist.order.newOrder
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -37,7 +35,6 @@ import com.example.restaurantpos.util.gone
 import com.example.restaurantpos.util.show
 import com.example.restaurantpos.util.showToast
 import java.util.Calendar
-import java.util.stream.Collectors
 
 class NewOrderFragment : Fragment() {
 

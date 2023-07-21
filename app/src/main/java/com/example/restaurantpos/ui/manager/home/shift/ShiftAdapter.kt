@@ -118,8 +118,6 @@ class ShiftAdapter(
         holder.txtNightShift.setOnClickListener {
             listenerClickShift.clickNightShift(nightShiftID)
         }
-
-
     }
 
     /**-----------------------------------------------------------------------------------------*/

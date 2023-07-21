@@ -37,7 +37,22 @@ data class OrderEntity constructor(
     var bill_total: Float,
 
     @ColumnInfo(name = "order_status_id")
-    var order_status_id: Int
+    var order_status_id: Int,
+
+    @ColumnInfo(name = "coupon")
+    var coupon: Int = 0,
+
+    @ColumnInfo(name = "customer_rank")
+    var customer_rank: Int = 0,
+
+    @ColumnInfo(name = "sub_total")
+    var sub_total: Float = 0f,
+
+    @ColumnInfo(name = "cash")
+    var cash: Long = 0,
+
+    @ColumnInfo(name = "change")
+    var change: String = "0",
 
     /*
     0. Đang trong quá trình tạo Bill (Mới click cái bàn xong)

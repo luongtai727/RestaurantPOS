@@ -50,14 +50,11 @@ class ShiftViewModel : ViewModel() {
         }
     }*/
 
-
-
     fun deleteAccountShift(accountShift: AccountShiftEntity) {
         CoroutineScope(Dispatchers.IO).launch {
             DatabaseUtil.shiftDAO.deleteAccountShift(accountShift)
         }
     }
-
 
     fun getListAccountShift(shift_id: String) = DatabaseUtil.getListAccountShift(shift_id)
     fun getListAccountShiftReceptionist(shift_id: String) = DatabaseUtil.getListAccountShiftReceptionist(shift_id)
