@@ -11,12 +11,14 @@ import com.example.restaurantpos.databinding.ActivitySplashBinding
 import com.example.restaurantpos.db.entity.AccountEntity
 import com.example.restaurantpos.db.entity.AccountRoleEntity
 import com.example.restaurantpos.db.entity.AccountStatusEntity
+import com.example.restaurantpos.db.entity.CartItemEntity
 import com.example.restaurantpos.db.entity.CartItemStatusEntity
 import com.example.restaurantpos.db.entity.CategoryEntity
 import com.example.restaurantpos.db.entity.CouponEntity
 import com.example.restaurantpos.db.entity.CustomerEntity
 import com.example.restaurantpos.db.entity.CustomerRankEntity
 import com.example.restaurantpos.db.entity.ItemEntity
+import com.example.restaurantpos.db.entity.OrderEntity
 import com.example.restaurantpos.db.entity.OrderStatusEntity
 import com.example.restaurantpos.db.entity.ShiftEntity
 import com.example.restaurantpos.db.entity.TableEntity
@@ -177,6 +179,36 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         viewModel.addCustomerRank(CustomerRankEntity(2, "rank 1"))
         viewModel.addCustomerRank(CustomerRankEntity(3, "rank 2"))
         viewModel.addCustomerRank(CustomerRankEntity(4, "rank 3"))
+
+        /** 8. order   */
+        OrderEntity(order_id="2023/07/22  16:20:04", customer_id=1, table_id=2, created_by_account_id=2, order_create_time="2023/07/22  16:20:04", paid_time="2023/07/22  16:20:40", bill_total=302.83002f, order_status_id=2, coupon=0, customer_rank=0, sub_total=275.30002f, cash=8000, change="7697,2")
+        viewModel.addOrder(OrderEntity(order_id="2023/07/01  16:20:04", customer_id=1, table_id=2, created_by_account_id=2, order_create_time="2023/07/01  16:20:04", paid_time="2023/07/22  16:20:40", bill_total=100.83002f, order_status_id=2, coupon=0, customer_rank=0, sub_total=275.30002f, cash=8000, change="7697,2"))
+        viewModel.addOrder(OrderEntity(order_id="2023/07/02  16:20:04", customer_id=1, table_id=2, created_by_account_id=2, order_create_time="2023/07/02  16:20:04", paid_time="2023/07/22  16:20:40", bill_total=105.83002f, order_status_id=2, coupon=0, customer_rank=0, sub_total=275.30002f, cash=8000, change="7697,2"))
+        viewModel.addOrder(OrderEntity(order_id="2023/07/03  16:20:04", customer_id=1, table_id=2, created_by_account_id=2, order_create_time="2023/07/03  16:20:04", paid_time="2023/07/22  16:20:40", bill_total=200.83002f, order_status_id=2, coupon=0, customer_rank=0, sub_total=275.30002f, cash=8000, change="7697,2"))
+        viewModel.addOrder(OrderEntity(order_id="2023/07/05  16:20:04", customer_id=1, table_id=2, created_by_account_id=2, order_create_time="2023/07/04  16:20:04", paid_time="2023/07/22  16:20:40", bill_total=250.83002f, order_status_id=2, coupon=0, customer_rank=0, sub_total=275.30002f, cash=8000, change="7697,2"))
+        viewModel.addOrder(OrderEntity(order_id="2023/07/06  16:20:04", customer_id=1, table_id=2, created_by_account_id=2, order_create_time="2023/07/05  16:20:04", paid_time="2023/07/22  16:20:40", bill_total=280.83002f, order_status_id=2, coupon=0, customer_rank=0, sub_total=275.30002f, cash=8000, change="7697,2"))
+        viewModel.addOrder(OrderEntity(order_id="2023/07/08  16:20:04", customer_id=1, table_id=2, created_by_account_id=2, order_create_time="2023/07/06  16:20:04", paid_time="2023/07/22  16:20:40", bill_total=290.83002f, order_status_id=2, coupon=0, customer_rank=0, sub_total=275.30002f, cash=8000, change="7697,2"))
+
+        val list = ArrayList<CartItemEntity>()
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/01  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/02  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/03  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/04  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/05  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/06  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/07  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/08  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/09  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/07/10  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/06/10  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/05/10  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/04/10  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/03/10  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/02/10  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/01/10  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+
+        viewModel.addListCartItem(list)
     }
 
     private fun startLoginActivity() {

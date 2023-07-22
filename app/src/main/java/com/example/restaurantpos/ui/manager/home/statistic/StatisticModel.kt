@@ -12,6 +12,8 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import java.util.SortedMap
+import java.util.TreeMap
 
 class StatisticModel: ViewModel() {
     private val _getTotalRevenue: MutableLiveData<Map<String, Float>> by lazy {
@@ -80,8 +82,8 @@ class StatisticModel: ViewModel() {
         return revenueByYear
     }
 
-    fun calculateTotalRevenueByWeek(itemRevenueList: List<ItemRevenue>): Map<String, Float> {
-        val revenueByWeek = mutableMapOf<String, Float>()
+    fun calculateTotalRevenueByWeek(itemRevenueList: List<ItemRevenue>): SortedMap<String, Float> {
+        val revenueByWeek = TreeMap<String, Float>()
 
         for (itemRevenue in itemRevenueList) {
             val timeFormat = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault())

@@ -164,11 +164,9 @@ class NewOrderFragment : Fragment() {
             table.table_status_id = 1
             // Thêm bàn vào mà làm gì?
             viewModelTable.addTable(requireContext(), table)
-
         }
 
         /** ----------------------------------------------------------------------------*/
-
         /** Code for Order Button */
         binding.txtOrder.setOnClickListener {
             // Add Order (Bill) vào OrderEntity, thay đôi status sang 1 (Đã được click order)
@@ -191,7 +189,6 @@ class NewOrderFragment : Fragment() {
         binding.txtCustomerInOrder.setOnClickListener {
             showDialogCustomer()
         }
-
 
         /** -------------------------------ADAPTER-------------------------*/
         /** Adapter 1: CATEGORY in BOTTOM:  Xử lý adapter, inflate for View*/
@@ -318,9 +315,7 @@ class NewOrderFragment : Fragment() {
         // End: Tao Dialog (Khi khai bao chua thuc hien) and Show len display
         dialog = build.create()
         dialog.show()
-
     }
-
 
     /** ----------------------------------------------------------*/
     /** Add Customer Dialog */
@@ -355,7 +350,6 @@ class NewOrderFragment : Fragment() {
                 customerObject = itemCustomer
                 // Lưu thằng customer_id lại để set cho Order
                 idCustomer = itemCustomer.customer_id.toLong()
-
 
 //                orderObject?.customer_id = itemCustomer.customer_id
                 // Tìm cách đưa Customer's Name lên NewOrderFragment

@@ -54,6 +54,8 @@ class StatisticFragment : Fragment() {
             findNavController().popBackStack()
         }
 
+        statisticModel.getTotalRevenueByTimeAndCategory(time, category)
+
         initEvents()
         initObserver()
 

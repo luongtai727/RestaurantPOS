@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".ui.manager.home.statistic.StatisticFragment">
 
-
     <LinearLayout
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
@@ -84,6 +83,8 @@
             android:layout_height="wrap_content">
 
                 <RadioButton
+                    android:id="@+id/rdb_week"
+                    android:checked="true"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
@@ -94,6 +95,7 @@
                     android:fontFamily="@font/inter_600"
                     android:background="@drawable/bg_txt_login"/>
                 <RadioButton
+                    android:id="@+id/rdb_month"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
@@ -104,6 +106,7 @@
                     android:fontFamily="@font/inter_600"
                     android:background="@drawable/bg_txt_login"/>
                 <RadioButton
+                    android:id="@+id/rdb_year"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
@@ -113,9 +116,7 @@
                     android:textColor="@color/white"
                     android:fontFamily="@font/inter_600"
                     android:background="@drawable/bg_txt_login"/>
-
         </RadioGroup>
-
     </LinearLayout>
 
     <LinearLayout
@@ -144,6 +145,8 @@
             android:layout_height="wrap_content">
 
         <RadioButton
+            android:id="@+id/rdb_foods"
+            android:checked="true"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -154,6 +157,7 @@
             android:fontFamily="@font/inter_600"
             android:background="@drawable/bg_txt_login"/>
         <RadioButton
+            android:id="@+id/rdb_drink"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -164,6 +168,7 @@
             android:fontFamily="@font/inter_600"
             android:background="@drawable/bg_txt_login"/>
         <RadioButton
+            android:id="@+id/rdb_dessert"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -183,19 +188,15 @@
         android:layout_marginHorizontal="@dimen/_4sdp"
         android:background="@color/text_blue"/>
 
-
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
         android:background="@color/black"/>
 
-
-
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
         android:background="@color/black"/>
-
 
     <View
         android:layout_width="match_parent"
