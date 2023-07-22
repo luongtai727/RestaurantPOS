@@ -36,9 +36,12 @@ class HomeViewModel : ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
             val countDay = DataUtil.getNumberOfDayInMonth(nowYear, nowMonth)
             val listRevenue = ArrayList<Float>()
+            val monthString = if (nowMonth < 10) "0$nowMonth" else "$nowMonth"
 
             for (i in 1..countDay) {
-                val amount = DatabaseUtil.getAllOrder("$nowYear/0$nowMonth/$i")
+                val dayString = if (i < 10) "0$i" else "$i"
+
+                val amount = DatabaseUtil.getAllOrder("$nowYear/$monthString/$dayString")
                 listRevenue.add(amount)
             }
 

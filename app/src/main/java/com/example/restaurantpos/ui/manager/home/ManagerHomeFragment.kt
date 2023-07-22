@@ -162,9 +162,7 @@ class ManagerHomeFragment : Fragment() {
         }
 
         viewModelHome.revenue.observe(viewLifecycleOwner){ it->
-
             create_graph(binding.chart, graph_label, it)
-
         }
 
 
