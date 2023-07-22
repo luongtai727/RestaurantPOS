@@ -3,8 +3,10 @@ package com.example.restaurantpos.db.entity
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.gson.Gson
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -19,7 +21,7 @@ data class AccountShiftEntity constructor(
     val shift_id: String,
 
     @ColumnInfo(name = "account_id")
-    val account_id: Int
+    val account_id: Int,
 
 ):Parcelable {
     companion object {

@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.restaurantpos.db.entity.AccountShift
 import com.example.restaurantpos.db.entity.AccountShiftEntity
 import com.example.restaurantpos.db.entity.ShiftEntity
 
@@ -39,11 +40,16 @@ interface ShiftDAO {
     @Delete
     fun deleteAccountShift(accountShift: AccountShiftEntity): Int
 
+    @Query("DELETE FROM account_shift WHERE account_shift_id = :accountShiftId")
+    suspend fun deleteByAccountShiftId(accountShiftId: Int)
+
     // shift_id dạng:    yyyy/MM/dd_shift_name
     // Lấy ra toàn bộ account hoạt động trong Shift --> Đưa vào ID của Shift
 
-    @Query("SELECT * from account_shift WHERE shift_id = :shift_id")
-    fun getListAccountShiftForSetListData(shift_id: String): LiveData<MutableList<AccountShiftEntity>>
+    @Query("SELECT account_shift.account_id, account_shift.account_shift_id, account_shift.shift_id, account.account_name as name " +
+            " from account_shift, account" +
+            " WHERE account_shift.account_id == account.account_id and shift_id = :shift_id")
+    fun getListAccountShiftForSetListData(shift_id: String): LiveData<MutableList<AccountShift>>
 
     @Query("SELECT account.account_name from account_shift JOIN account ON account_shift.account_id = account.account_id WHERE shift_id LIKE :shift_id")
     fun getListAccountShift(shift_id: String): LiveData<MutableList<String>>
