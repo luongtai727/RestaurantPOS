@@ -80,7 +80,6 @@ class TableFragment : Fragment(), TableAdapter.EventClickTableListener {
                         true
                     }
 
-
                     else -> true
                 }
             }

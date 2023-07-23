@@ -51,8 +51,7 @@ class CustomerInnerAdapter (
 
     @SuppressLint("NotifyDataSetChanged")
     fun setListData(newListData: MutableList<CustomerEntity>) {
-        listData.clear()
-        listData.addAll(newListData)
+        listData = newListData
         notifyDataSetChanged()
     }
 

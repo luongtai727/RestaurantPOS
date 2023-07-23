@@ -19,7 +19,7 @@ class CouponViewModel : ViewModel() {
     var couponState: Int = View.GONE
     var coupon: String = ""
     var content: String = "Apply Coupon?"
-
+    var charnge: String = ""
 
     private val _isDuplicate: MutableLiveData<Boolean> by lazy {
         MutableLiveData<Boolean>()
@@ -56,6 +56,7 @@ class CouponViewModel : ViewModel() {
     private val _couponGetByCouponCode:  MutableLiveData<MutableList<CouponEntity>>  by lazy {
         MutableLiveData<MutableList<CouponEntity>>()
     }
+
     val couponGetByCouponCode: MutableLiveData<MutableList<CouponEntity>> = _couponGetByCouponCode
     fun getCouponByCouponCode(couponCode: String) {
         viewModelScope.launch(Dispatchers.IO) {

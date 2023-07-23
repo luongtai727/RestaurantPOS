@@ -17,6 +17,12 @@ class CustomerViewModel: ViewModel() {
 
     val getIDWhenInsertOrderSuccess: LiveData<Long> = _getIDWhenInsertOrderSuccess
 
+    private val _getListCustomerObserver: MutableLiveData<MutableList<CustomerEntity>> by lazy {
+        MutableLiveData<MutableList<CustomerEntity>>()
+    }
+
+    val getListCustomerObserver: LiveData<MutableList<CustomerEntity>>  = _getListCustomerObserver
+
     fun getListCustomerByPhoneForSearch(phone: String) = DatabaseUtil.getListCustomerByPhoneForSearch(phone)
     fun getListCustomerByPhoneForAdd(phone: String) = DatabaseUtil.getListCustomerByPhoneForAdd(phone)
     fun getListCustomer() = DatabaseUtil.getListCustomer()
@@ -33,6 +39,12 @@ class CustomerViewModel: ViewModel() {
         }
     }*/
 
+
+    fun searchCustomerByKey(key: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            _getListCustomerObserver.postValue(DatabaseUtil.getListCustomerByPhoneForSearch(key))
+        }
+    }
 
     // Lắng nghe: Khi add Customer mới thì nó sẽ trả cho mình thêm 1 cái IdCustomer
     // Mang IdCustomer đi xử lý ở bảng Order.customer_id

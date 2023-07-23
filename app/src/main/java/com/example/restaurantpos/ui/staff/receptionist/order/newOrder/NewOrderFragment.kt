@@ -3,6 +3,11 @@ package com.example.restaurantpos.ui.staff.receptionist.order.newOrder
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -19,6 +24,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doBeforeTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -40,6 +48,7 @@ import com.example.restaurantpos.ui.staff.receptionist.table.TableViewModel
 import com.example.restaurantpos.util.DateFormatUtil
 import com.example.restaurantpos.util.SharedPreferencesUtils
 import com.example.restaurantpos.util.gone
+import com.example.restaurantpos.util.hide
 import com.example.restaurantpos.util.show
 import com.example.restaurantpos.util.showToast
 import java.util.Calendar
@@ -52,7 +61,6 @@ class NewOrderFragment : Fragment() {
     lateinit var adapterCategoryInBottomOfOrderFragment: CategoryInBottomOfOrderFragmentAdapter
     lateinit var adapterOrderItem: ItemOfCategoryInBottomOfOrderFragmentAdapter
     lateinit var adapterCartItem: CartItemAdapter
-    lateinit var adapterCustomerInner: CustomerInnerAdapter
 
     /** Những ViewModel chứa các phương thức cần sử dụng */
     lateinit var viewModelCategory: CategoryViewModel
@@ -75,6 +83,7 @@ class NewOrderFragment : Fragment() {
 
     // Dialog cho Customer
     lateinit var dialog: AlertDialog
+    lateinit var dialog_choose_customer: AlertDialog
 
     val calendar = Calendar.getInstance()
 
@@ -123,7 +132,6 @@ class NewOrderFragment : Fragment() {
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-
 
         /** Code for Back */
         binding.igmBackOfOrder.setOnClickListener {
@@ -323,7 +331,6 @@ class NewOrderFragment : Fragment() {
             dialog.dismiss()
         }
 
-
         // Other:  Dau X  &   Cancel Button
         imgClose.setOnClickListener { dialog.dismiss() }
         btnCancel.setOnClickListener { dialog.dismiss() }
@@ -350,7 +357,6 @@ class NewOrderFragment : Fragment() {
         build.setView(view)
         // 4.  Get Component of Dialog
         val edtPhoneNumber = view.findViewById<EditText>(R.id.edtPhoneNumber)
-        val rcyCustomerInPhone = view.findViewById<RecyclerView>(R.id.rcyCustomerInPhone)
         val edtCustomerName = view.findViewById<EditText>(R.id.edtCustomerName)
         val txtCustomerBirthday = view.findViewById<TextView>(R.id.txtCustomerBirthday)
         val btnAddCustomer = view.findViewById<Button>(R.id.btnAddCustomer)
@@ -358,25 +364,7 @@ class NewOrderFragment : Fragment() {
         val imgDate = view.findViewById<ImageView>(R.id.imgDate)
         val imgCloseDialogCustomer = view.findViewById<ImageView>(R.id.imgCloseDialogCustomer)
         val tv_choose_customer = view.findViewById<TextView>(R.id.tv_choose_customer)
-        val llItem = view.findViewById<LinearLayout>(R.id.llItem)
 
-        // -----------------Code for Component----------------------------------------//
-        // 1.  Handle Adapter CustomerPhone + Code of clickCustomerInner (Get CustomerInfo and set to View in Order)
-        adapterCustomerInner = CustomerInnerAdapter(requireParentFragment(), ArrayList(), object :
-            CustomerInnerAdapter.EventClickItemCustomerInnerListener {
-            override fun clickCustomerInner(itemCustomer: CustomerEntity) {
-                // Có sẵn thì pick-up ra thôi
-                customerObject = itemCustomer
-                // Lưu thằng customer_id lại để set cho Order
-                idCustomer = itemCustomer.customer_id.toLong()
-
-//                orderObject?.customer_id = itemCustomer.customer_id
-                // Tìm cách đưa Customer's Name lên NewOrderFragment
-                binding.txtCustomerInOrder.text = itemCustomer.customer_name
-                dialog.dismiss()
-            }
-        })
-        rcyCustomerInPhone.adapter = adapterCustomerInner
 
         // 2. Code for when staff types on edtPhoneNumber and contain >= 3 Chars. If exist --> Show for Picking-up
         // SetData for (1)
@@ -435,39 +423,9 @@ class NewOrderFragment : Fragment() {
                 }
         }
 
-        val spinner = view.findViewById<Spinner>(R.id.spn_customer)
-
-        viewModelCustomer.getListCustomer().observe(viewLifecycleOwner){
-            // Tạo Adapter và gắn dữ liệu vào Spinner
-            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinner.adapter = adapter
-        }
-
-        // Bắt sự kiện khi chọn dữ liệu trên Spinner
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val selectedProduct = parent?.getItemAtPosition(position) as CustomerEntity
-                // Xử lý khi chọn dữ liệu trên Spinner
-                // Có sẵn thì pick-up ra thôi
-                customerObject = selectedProduct
-                // Lưu thằng customer_id lại để set cho Order
-                idCustomer = selectedProduct.customer_id.toLong()
-
-//                orderObject?.customer_id = itemCustomer.customer_id
-                // Tìm cách đưa Customer's Name lên NewOrderFragment
-                binding.txtCustomerInOrder.text = selectedProduct.customer_name
-
-                //dialog.dismiss()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Xử lý khi không chọn gì cả trên Spinner
-            }
-        }
-
         tv_choose_customer.setOnClickListener {
-            llItem.visibility = VISIBLE
+            showDialogChooseCustomer()
+            dialog.dismiss()
         }
 
         // Other:  Dau X  &   Cancel Button
@@ -478,6 +436,75 @@ class NewOrderFragment : Fragment() {
         dialog = build.create()
         dialog.show()
     }
+
+    private val searchHandler = Handler(Looper.getMainLooper())
+    private val SEARCH_DELAY = 500L // Thời gian chờ trước khi thực hiện tìm kiếm (500ms)
+
+    @SuppressLint("SetTextI18n")
+    private fun showDialogChooseCustomer() {
+        val build = AlertDialog.Builder(requireActivity(), R.style.ThemeCustom)
+        val view = layoutInflater.inflate(R.layout.dialog_alert_choose_customer, null)
+        build.setView(view)
+        val edtPhoneNumber = view.findViewById<EditText>(R.id.edtPhoneNumberChooseCustomer)
+        val rcyCustomerInPhone = view.findViewById<RecyclerView>(R.id.rcyCustomerInPhoneChooseCustomer)
+        val imgCloseDialogCustomer = view.findViewById<ImageView>(R.id.imgCloseDialogCustomer)
+
+        // -----------------Code for Component----------------------------------------//
+        // 1.  Handle Adapter CustomerPhone + Code of clickCustomerInner (Get CustomerInfo and set to View in Order)
+        var adapterCustomerInner: CustomerInnerAdapter =
+            CustomerInnerAdapter(requireParentFragment(), ArrayList(), object :
+            CustomerInnerAdapter.EventClickItemCustomerInnerListener {
+            override fun clickCustomerInner(itemCustomer: CustomerEntity) {
+                // Có sẵn thì pick-up ra thôi
+                customerObject = itemCustomer
+                // Lưu thằng customer_id lại để set cho Order
+                idCustomer = itemCustomer.customer_id.toLong()
+
+//                orderObject?.customer_id = itemCustomer.customer_id
+                // Tìm cách đưa Customer's Name lên NewOrderFragment
+                binding.txtCustomerInOrder.text = itemCustomer.customer_name
+                dialog_choose_customer.dismiss()
+            }
+        })
+
+        rcyCustomerInPhone.adapter = adapterCustomerInner
+
+        viewModelCustomer.getListCustomerObserver
+            .observe(viewLifecycleOwner) {
+                if (it.size > 0) {
+                    adapterCustomerInner.setListData(it as ArrayList<CustomerEntity>)
+                }
+            }
+
+        viewModelCustomer.searchCustomerByKey("")
+
+        edtPhoneNumber.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Không làm gì
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Hủy các tìm kiếm trước đó và đặt lại Debouncing
+                searchHandler.removeCallbacksAndMessages(null)
+                searchHandler.postDelayed({
+                    // Thực hiện tìm kiếm sau khi người dùng không nhập thêm ký tự trong khoảng thời gian SEARCH_DELAY
+                    viewModelCustomer.searchCustomerByKey(s.toString())
+                }, SEARCH_DELAY)
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // Không làm gì
+            }
+        })
+
+
+        imgCloseDialogCustomer.setOnClickListener { dialog_choose_customer.dismiss() }
+
+        // End: Tao Dialog (Khi khai bao chua thuc hien) and Show len display
+        dialog_choose_customer = build.create()
+        dialog_choose_customer.show()
+    }
+
 
     /** ----------------------------------------------------------*/
     // Set listData get được từ DB cho listData mà Adapter sử dụng, để đổ ra View.
