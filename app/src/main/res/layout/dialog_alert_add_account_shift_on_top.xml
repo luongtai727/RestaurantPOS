@@ -47,29 +47,31 @@
         app:layout_constraintTop_toBottomOf="@+id/txtAddAccountShift">
 
 
-        <ImageView
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:src="@drawable/img_right_arrow"
-            app:tint="@color/white" />
 
-        <EditText
-            android:id="@+id/edtAccount"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/_18sdp"
-            android:background="@drawable/bg_edt_login"
-            android:fontFamily="@font/inter_400"
-            android:gravity="center_vertical"
-            android:hint="Enter staff' name"
-            android:inputType="text"
-            android:maxLength="18"
-            android:padding="@dimen/_4sdp"
-            android:paddingStart="@dimen/_12sdp"
-            android:textSize="@dimen/_14sdp"
-            tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:src="@drawable/img_right_arrow"
+                app:tint="@color/white" />
+
+            <Spinner
+                android:id="@+id/spn_customer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:background="@drawable/bg_edt_login"
+                android:fontFamily="@font/inter_400"
+                android:gravity="left"
+                android:hint="Customer's Name"
+                android:maxLength="14"
+                android:padding="@dimen/_4sdp"
+                android:paddingStart="@dimen/_12sdp"
+                android:textSize="@dimen/_15sdp"
+                tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

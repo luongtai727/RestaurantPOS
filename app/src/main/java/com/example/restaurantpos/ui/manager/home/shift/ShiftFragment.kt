@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -24,6 +25,7 @@ import com.example.restaurantpos.R
 import com.example.restaurantpos.databinding.FragmentShiftBinding
 import com.example.restaurantpos.db.entity.AccountEntity
 import com.example.restaurantpos.db.entity.AccountShiftEntity
+import com.example.restaurantpos.db.entity.CustomerEntity
 import com.example.restaurantpos.ui.manager.user.UserViewModel
 import com.example.restaurantpos.util.DataUtil
 import com.example.restaurantpos.util.SharedPreferencesUtils
@@ -151,7 +153,6 @@ class ShiftFragment : Fragment() {
         val view = layoutInflater.inflate(R.layout.dialog_alert_add_account_shift_on_top, null)
         build.setView(view)
         // 4.  Get Component of Dialog
-        val edtAccount = view.findViewById<EditText>(R.id.edtAccount)
         val spnShift = view.findViewById<Spinner>(R.id.spnShift)
         val txtShiftDate = view.findViewById<TextView>(R.id.txtShiftDate)
         val txtError = view.findViewById<TextView>(R.id.txtError)
@@ -176,7 +177,6 @@ class ShiftFragment : Fragment() {
             object : StaffSelectionAdapter.EventClickStaffListener {
                 override fun clickStaff(itemStaff: AccountEntity) {
                     staffObject = itemStaff
-                    edtAccount.setText(itemStaff.account_name)
                     accountID = itemStaff.account_id
                 }
             })
@@ -185,41 +185,30 @@ class ShiftFragment : Fragment() {
 
 
         // 2.2 Xử lý doOnTextChanged cho accountName
-        edtAccount.doOnTextChanged { text3, _, _, _ ->
-            if (text3.toString().isNotEmpty()) {
+        val spinner = view.findViewById<Spinner>(R.id.spn_customer)
 
-                val filterList = ArrayList<AccountEntity>()
+        viewModelUser.getAllUser().observe(viewLifecycleOwner){
+            // Tạo Adapter và gắn dữ liệu vào Spinner
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
 
-                viewModelUser.getAllUserActiveByName(text3.toString())
-                    .observe(viewLifecycleOwner) { allAccountActive ->
-
-                        listAccountActive = allAccountActive as ArrayList<AccountEntity>
-
-                        listAccountActive.forEach { account ->
-                            if (account.account_name.contains(text3.toString())) {
-                                filterList.add(account)
-                            }
-                        }
-                        if (filterList.isNotEmpty()) {
-                            adapterStaffSelection.setListData(filterList)
-                            rcyAccountInner.show()
-                        } else {
-                            rcyAccountInner.gone()
-                        }
-                    }
-
-            } else {
-                rcyAccountInner.gone()
+        // Bắt sự kiện khi chọn dữ liệu trên Spinner
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val account = parent?.getItemAtPosition(position) as AccountEntity
+                accountID = account.account_id
             }
 
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Xử lý khi không chọn gì cả trên Spinner
+            }
         }
 
         /** ------------------------------------------------------------ */
-
         // 3. Pick-up-Date
         imgDate.setOnClickListener {
-            edtAccount.clearFocus()
-
             DatePickerDialog(
                 requireContext(),
                 DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
@@ -228,7 +217,6 @@ class ShiftFragment : Fragment() {
                 startYear, startMonth, startDay
             ).show()
         }
-
 
         // 4.  Add Account_Shift
         // Check account đã tồn tại hay chưa
@@ -245,11 +233,9 @@ class ShiftFragment : Fragment() {
 
 
         btnAdd.setOnClickListener {
-            edtAccount.clearFocus()
-
             shiftID = txtShiftDate?.text.toString() + "  $shiftName"
 
-            if (txtShiftDate.text.isNotEmpty() && edtAccount.text.isNotEmpty() && accountID != 0) {
+            if (txtShiftDate.text.isNotEmpty()  && accountID != 0) {
                 viewModelShift.addAccountShift(
                     AccountShiftEntity(0, shiftID, accountID)
                 )

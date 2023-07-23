@@ -53,4 +53,8 @@ data class AccountEntity constructor(
     fun toJson(): String {
         return Gson().toJson(this)
     }
+
+    override fun toString(): String {
+        return account_name
+    }
 }

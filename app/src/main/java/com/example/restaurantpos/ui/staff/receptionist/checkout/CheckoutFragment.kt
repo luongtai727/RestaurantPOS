@@ -592,6 +592,39 @@ class CheckoutFragment : Fragment() {
                 }
         }
 
+
+        val spinner = view.findViewById<Spinner>(R.id.spn_customer)
+
+        viewModelCustomer.getListCustomer().observe(viewLifecycleOwner){
+            // Tạo Adapter và gắn dữ liệu vào Spinner
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
+
+        // Bắt sự kiện khi chọn dữ liệu trên Spinner
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedProduct = parent?.getItemAtPosition(position) as CustomerEntity
+                // Xử lý khi chọn dữ liệu trên Spinner
+                // Có sẵn thì pick-up ra thôi
+                customerObject = selectedProduct
+
+                binding.txtCustomerInBill.text = selectedProduct.customer_name
+                binding.tvTotalPayment.text = customerObject!!.total_payment.toString()
+                calculateDiscountPercentage(customerObject!!.customer_rank_id)
+
+                calculateTotalAmount()
+
+                //dialog.dismiss()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Xử lý khi không chọn gì cả trên Spinner
+            }
+        }
+
+
         tv_choose_customer.setOnClickListener {
             showDialogChooseCustomer()
             dialog.dismiss()
