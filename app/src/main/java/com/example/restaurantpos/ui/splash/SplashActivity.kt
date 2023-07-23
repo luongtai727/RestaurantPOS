@@ -208,6 +208,21 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/02/10  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
         list.add(CartItemEntity(cart_item_id=0, item_id=2, order_id="2023/01/10  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
 
+        list.add(CartItemEntity(cart_item_id=0, item_id=3, order_id="2023/06/15  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=3, order_id="2023/05/16  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=3, order_id="2023/04/17  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=3, order_id="2023/03/18  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=3, order_id="2023/02/19  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=3, order_id="2023/01/20  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+
+        list.add(CartItemEntity(cart_item_id=0, item_id=1, order_id="2023/06/21  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=1, order_id="2023/05/22  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=1, order_id="2023/04/23  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=1, order_id="2023/03/24  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=1, order_id="2023/02/25  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+        list.add(CartItemEntity(cart_item_id=0, item_id=1, order_id="2023/01/26  16:36:41", order_quantity=2, note= "", cart_order_time="16:36:42", cart_item_status_id=2))
+
+
         viewModel.addListCartItem(list)
     }
 
