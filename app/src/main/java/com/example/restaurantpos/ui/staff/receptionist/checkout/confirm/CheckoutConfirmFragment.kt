@@ -163,9 +163,20 @@ class CheckoutConfirmFragment : Fragment() {
         /** Handle Customer */
         viewModelCustomer.getListCustomer()
             .observe(viewLifecycleOwner) { listCustomer ->
-                if (listCustomer.isNotEmpty()) {
-                     customerObject = listCustomer.stream().filter { it -> it.customer_id == orderObject?.customer_id }.collect(
-                        Collectors.toList()).get(0)
+                val list = listCustomer.stream()
+                    .filter { it -> it.customer_id == orderObject?.customer_id }.collect(
+                        Collectors.toList()
+                    )
+
+                var customer: CustomerEntity? = null
+                if (!list.isEmpty()){
+                    customer = list.get(0)
+                }
+
+                if (customer != null){
+                    customerObject = customer
+                }else{
+                    customerObject = CustomerEntity(0, "unknown", "", "", 0.0, 1)
                 }
             }
 

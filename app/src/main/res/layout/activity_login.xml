@@ -51,7 +51,7 @@
                 android:background="@drawable/bg_edt_login"
                 android:fontFamily="@font/inter_400"
                 android:hint="@string/username"
-                android:text="quang0"
+                android:text="quang1"
                 android:singleLine="true"
                 android:minHeight="48dp"
                 android:paddingHorizontal="@dimen/_20sdp"

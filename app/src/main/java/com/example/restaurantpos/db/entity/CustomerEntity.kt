@@ -56,4 +56,8 @@ data class CustomerEntity constructor(
     fun toJson(): String {
         return Gson().toJson(this)
     }
+
+    override fun toString(): String {
+        return this.customer_name
+    }
 }

@@ -17,13 +17,10 @@ class MainManagerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainManagerBinding
     private lateinit var navController: NavController
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainManagerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         // Navigation
         val navHostFragment = supportFragmentManager
@@ -58,7 +55,6 @@ class MainManagerActivity : AppCompatActivity() {
                         openActivity(UpdateAdminInfoActivity::class.java)
                         true
                     }
-
 
                     else -> true
                 }

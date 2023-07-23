@@ -46,7 +46,6 @@ class CustomerAdapter(
         holder.txtCustomerPhone.text = itemCustomer.phone
         holder.txtCustomerBirthday.text = itemCustomer.birthday
 
-
         holder.viewRootCustomer.setOnClickListener {
             listenerClickCustomer.clickCustomer(itemCustomer)
         }

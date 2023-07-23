@@ -164,7 +164,6 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/inter_500"
                         android:gravity="center"
-                        android:text="-5%"
                         android:textColor="@color/text_rank_1" />
 
                 </LinearLayout>
@@ -214,8 +213,6 @@
 
                     </LinearLayout>
 
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -262,8 +259,6 @@
 
                     </LinearLayout>
 
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -273,7 +268,7 @@
                     android:layout_marginVertical="@dimen/_3sdp"
                     android:layout_marginStart="@dimen/_12sdp"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="0dp"
@@ -338,11 +333,12 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/txtAddCoupon"
+                    android:id="@+id/txt_Add_Coupon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Apply coupon?"
                     android:layout_gravity="right"
+                    android:text="adasdasdadasd"
+                    android:visibility="visible"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:textSize="@dimen/_7sdp"/>
 

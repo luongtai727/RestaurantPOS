@@ -1,6 +1,7 @@
 package com.example.restaurantpos.ui.manager.coupon
 
 import android.content.Context
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,6 +15,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CouponViewModel : ViewModel() {
+
+    var couponState: Int = View.GONE
+    var coupon: String = ""
+    var content: String = "Apply Coupon?"
+
 
     private val _isDuplicate: MutableLiveData<Boolean> by lazy {
         MutableLiveData<Boolean>()

@@ -167,6 +167,54 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_choose_customer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/llCustomerBirthday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llCustomerBirthday"/>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/llItem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llCustomerBirthday">
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/img_right_arrow"
+            app:tint="@color/white" />
+
+        <Spinner
+            android:id="@+id/spn_customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/bg_edt_login"
+            android:fontFamily="@font/inter_400"
+            android:gravity="left"
+            android:hint="Customer's Name"
+            android:maxLength="14"
+            android:padding="@dimen/_4sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -176,7 +224,7 @@
         android:layout_marginBottom="@dimen/_20sdp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llCustomerBirthday">
+        app:layout_constraintTop_toBottomOf="@+id/llItem">
 
         <Button
             android:id="@+id/btnAddCustomer"

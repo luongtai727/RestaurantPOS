@@ -106,7 +106,6 @@ class TableFragment : Fragment(), TableAdapter.EventClickTableListener {
                 bundleOf("shiftOfStaff" to 1)
             )
         }
-
     }
 
     /** clickTable --> Navigate to Order/Ordered Fragment */
